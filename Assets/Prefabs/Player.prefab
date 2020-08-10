@@ -4936,3 +4936,4 @@ MonoBehaviour:
   shootTime: 0.5
   textbox: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 45edd58834892a24cb91acb369f1e77f, type: 3}
+  lives: 3

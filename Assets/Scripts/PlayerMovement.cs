@@ -13,7 +13,9 @@ public class PlayerMovement : Ship
     //public Transform firePoint2;
     public float shootTime = .5f;
     public GameObject textbox;
+    public GameObject livesText;
     public AudioClip shootSound;
+    public int lives;
 
     private float nextShoot = 0f;
 
@@ -22,17 +24,21 @@ public class PlayerMovement : Ship
     private float verticalMove = 0f;
     private float currentShoot = 0f;
     private int score = 0;
+    private Vector2 spawnCoods;
+    public int immunityTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spawnCoods = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (immunityTimer > 0) immunityTimer--;
+        livesText.GetComponent<Text>().text = "Lives: " + lives;
         textbox.GetComponent<Text>().text = "Score: " + score;
         //counter to limit shooting speed
         if (currentShoot > 0) currentShoot--;
@@ -51,7 +57,7 @@ public class PlayerMovement : Ship
             }
         }
 
-        if(health <= 0)
+        if(lives <= 0)
         {
             GameOver();
         }
@@ -79,4 +85,11 @@ public class PlayerMovement : Ship
     {
         SceneManager.LoadScene(1);
     }
+
+    public void Respawn()
+    {
+        transform.position = spawnCoods;
+        this.gameObject.SetActive(true);
+    }
+
 }
