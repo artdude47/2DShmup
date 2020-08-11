@@ -16,6 +16,7 @@ public class PlayerMovement : Ship
     public GameObject livesText;
     public AudioClip shootSound;
     public int lives;
+    private int level = 0;
 
     private float nextShoot = 0f;
 
@@ -24,10 +25,17 @@ public class PlayerMovement : Ship
     private float verticalMove = 0f;
     private float currentShoot = 0f;
     private int score = 0;
+    private int money = 0;
     private Vector2 spawnCoods;
     public int immunityTimer = 0;
 
+    private int speedLevel = 1;
+
     // Start is called before the first frame update
+    private void Awake()
+    {
+    
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,8 +46,8 @@ public class PlayerMovement : Ship
     void Update()
     {
         if (immunityTimer > 0) immunityTimer--;
-        livesText.GetComponent<Text>().text = "Lives: " + lives;
-        textbox.GetComponent<Text>().text = "Score: " + score;
+        if(livesText != null) livesText.GetComponent<Text>().text = "Lives: " + lives;
+        if(textbox != null) textbox.GetComponent<Text>().text = "Score: " + score;
         //counter to limit shooting speed
         if (currentShoot > 0) currentShoot--;
 
@@ -76,9 +84,10 @@ public class PlayerMovement : Ship
         AudioSource.PlayClipAtPoint(shootSound, firePoint.position);
     }
 
-    public void ScoreUp(int newScore)
+    public void ScoreUp(int newScore, int newMoney)
     {
         score += newScore;
+        money += newMoney;
     }
 
     private void GameOver()
@@ -90,6 +99,17 @@ public class PlayerMovement : Ship
     {
         transform.position = spawnCoods;
         this.gameObject.SetActive(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Win")
+        {
+            PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetInt("SpeedLevel", speedLevel);
+            SceneManager.LoadScene(1);
+            
+        }
     }
 
 }

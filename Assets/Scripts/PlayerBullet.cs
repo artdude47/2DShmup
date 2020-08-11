@@ -24,7 +24,7 @@ public class PlayerBullet : Bullet {
         if(collision.tag == "Enemy")
         {
             collision.GetComponent<Ship>().TakeDamage(damage);
-            playerScript.ScoreUp(collision.GetComponent<Enemy>().scoreCount);
+            playerScript.ScoreUp(collision.GetComponent<Enemy>().scoreCount, collision.GetComponent<Enemy>().moneyCount);
             Die();
         }
 
