@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,10 +15,16 @@ public class PlayerBullet : Bullet {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<BasicEnemy>())
+        /*  if (collision.GetComponent<BasicEnemy>())
+          {
+              collision.GetComponent<BasicEnemy>().TakeDamage(damage);
+              playerScript.ScoreUp(collision.GetComponent<BasicEnemy>().scoreCount);
+              Die();
+          } */
+        if(collision.tag == "Enemy")
         {
-            collision.GetComponent<BasicEnemy>().TakeDamage(damage);
-            playerScript.ScoreUp(collision.GetComponent<BasicEnemy>().scoreCount);
+            collision.GetComponent<Ship>().TakeDamage(damage);
+            playerScript.ScoreUp(collision.GetComponent<Enemy>().scoreCount);
             Die();
         }
 

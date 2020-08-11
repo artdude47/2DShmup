@@ -3,15 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicEnemy : Ship
+public class BasicEnemy : Enemy
 {
 
     public float speed = 5f;
     public GameObject bullet;
     public Transform firePoint;
     public int shotChance = 300;
-    public int scoreCount = 10;
-    public int moneyValue = 20;
 
     private Rigidbody2D rb;
     // Start is called before the first frame update
