@@ -22,11 +22,13 @@ public class BasicEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
+        /* No longer shoot for now?
         //generate bullets randomly
         int randomNum = UnityEngine.Random.Range(0, shotChance);
         if (randomNum == 2 && transform.position.x < 13) Shoot();
+        */
 
-        if (transform.position.x < -10) Die();
+
     }
 
     private void FixedUpdate()
