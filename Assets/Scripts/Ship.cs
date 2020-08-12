@@ -17,11 +17,11 @@ public class Ship : MonoBehaviour
     {
         health -= damage;
         if (health <= 0)
-            Die();
+            Die(true);
   
     }
 
-    protected void Die()
+    protected void Die(bool playSound)
     {
         //if it is the player turn off the game object and play animation
         bool isPlayer = false;
@@ -53,7 +53,7 @@ public class Ship : MonoBehaviour
             DropChance();
             Destroy(gameObject);
         }
-        AudioSource.PlayClipAtPoint(explode, transform.position);
+        if(playSound) AudioSource.PlayClipAtPoint(explode, transform.position);
         Instantiate(explosion, transform.position, transform.rotation);
     }
 
