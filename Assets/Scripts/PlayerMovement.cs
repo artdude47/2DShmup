@@ -40,6 +40,25 @@ public class PlayerMovement : Ship
     {
         rb = GetComponent<Rigidbody2D>();
         spawnCoods = transform.position;
+        if(PlayerPrefs.GetInt("Level") != 0)
+        {
+            money = PlayerPrefs.GetInt("Money");
+            level = PlayerPrefs.GetInt("Level");
+            speedLevel = PlayerPrefs.GetInt("SpeedLevel");
+        }
+
+        switch (speedLevel)
+        {
+            case 1:
+                speed = 5f;
+                break;
+            case 2:
+                speed = 5.25f;
+                break;
+        }
+
+        Debug.Log("Speed" + speedLevel);
+        Debug.Log("Level" + level);
     }
 
     // Update is called once per frame
@@ -92,7 +111,7 @@ public class PlayerMovement : Ship
 
     private void GameOver()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void Respawn()
@@ -106,8 +125,9 @@ public class PlayerMovement : Ship
         if(collision.tag == "Win")
         {
             PlayerPrefs.SetInt("Money", money);
+            PlayerPrefs.SetInt("Level", level);
             PlayerPrefs.SetInt("SpeedLevel", speedLevel);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Shop");
             
         }
     }

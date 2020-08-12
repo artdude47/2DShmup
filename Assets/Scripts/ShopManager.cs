@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
     private int money;
     private int speedLevel;
+    private int level;
     public GameObject money_Text;
     public GameObject speed_Cost_Text;
     public GameObject speed_Bar;
@@ -17,6 +19,7 @@ public class ShopManager : MonoBehaviour
     private void Awake()
     {
         money = PlayerPrefs.GetInt("Money");
+        level = PlayerPrefs.GetInt("Level");
         speedLevel = PlayerPrefs.GetInt("SpeedLevel");
     }
     // Start is called before the first frame update
@@ -56,5 +59,14 @@ public class ShopManager : MonoBehaviour
                 speed_Bar.GetComponent<Slider>().value = .10f;
                 break;
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        level++;
+        PlayerPrefs.SetInt("Money", money);
+        PlayerPrefs.SetInt("Level", level);
+        PlayerPrefs.SetInt("SpeedLevel", speedLevel);
+        SceneManager.LoadScene(level);
     }
 }

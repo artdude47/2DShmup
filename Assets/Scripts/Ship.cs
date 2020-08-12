@@ -68,6 +68,6 @@ public class Ship : MonoBehaviour
 
     private void GameOver()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("GameOver");
     }
 }
