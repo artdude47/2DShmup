@@ -67,6 +67,6 @@ public class ShopManager : MonoBehaviour
         PlayerPrefs.SetInt("Money", money);
         PlayerPrefs.SetInt("Level", level);
         PlayerPrefs.SetInt("SpeedLevel", speedLevel);
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(level + 1);
     }
 }

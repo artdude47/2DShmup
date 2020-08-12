@@ -76,7 +76,10 @@
     <Compile Include="Assets\Scripts\ResetButton.cs" />
     <Compile Include="Assets\Scripts\Ship.cs" />
     <Compile Include="Assets\Scripts\ShopManager.cs" />
+    <Compile Include="Assets\Scripts\TitleHandler.cs" />
     <Compile Include="Assets\Scripts\ZigZag.cs" />
+    <None Include="Assets\Sprites\UI\PixelUIpack\License.txt" />
+    <None Include="Assets\Sprites\UI\PixelUIpack\Spritesheet\spritesheetInfo.txt" />
     <Reference Include="UnityEngine">
       <HintPath>G:/Program Files G/Unity/Hub/Editor/2019.4.3f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
