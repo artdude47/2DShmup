@@ -130,6 +130,17 @@ public class PlayerMovement : Ship
             SceneManager.LoadScene("Shop");
             
         }
+        if (collision.tag == "1up")
+        {
+            AddLives();
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void AddLives()
+    {
+        lives++;
+        Debug.Log("Lives Added!");
     }
 
 }

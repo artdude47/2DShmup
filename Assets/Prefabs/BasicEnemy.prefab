@@ -148,6 +148,8 @@ MonoBehaviour:
   health: 1
   explosion: {fileID: 1868736409675366700, guid: c4c5cfb33cd73e94e9c3c01c677ae09c,
     type: 3}
+  ExtraLife: {fileID: 5347533933347909963, guid: 6540fef03d78d644ea97059919ad8fe3,
+    type: 3}
   explode: {fileID: 8300000, guid: 400d2e0daa7cf2d48a44239bc36f8ddb, type: 3}
   scoreCount: 10
   moneyCount: 10

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEditor.Build;
 
 public class Ship : MonoBehaviour
 {
 
     public int health;
     public GameObject explosion;
+    public GameObject ExtraLife;
     private int impactDamage = 1;
     public AudioClip explode;
 
@@ -50,6 +50,7 @@ public class Ship : MonoBehaviour
         }
         else
         {
+            DropChance();
             Destroy(gameObject);
         }
         AudioSource.PlayClipAtPoint(explode, transform.position);
@@ -69,5 +70,15 @@ public class Ship : MonoBehaviour
     private void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    //5% chance for 1 up drop
+    private void DropChance()
+    {
+        float tempNum = Random.Range(0, 200);
+        if (tempNum == 2)
+        {
+            Instantiate(ExtraLife, transform.position, new Quaternion(0,0,0,0));
+        }
     }
 }
