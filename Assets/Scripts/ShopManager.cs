@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
     public GameObject money_Text;
     public GameObject speed_Cost_Text;
     public GameObject speed_Bar;
+    public AudioClip selectSound;
 
     private int speedCost;
 
@@ -38,6 +39,7 @@ public class ShopManager : MonoBehaviour
     {
         if(money >= speedCost)
         {
+            AudioSource.PlayClipAtPoint(selectSound, new Vector3(0, 0, 0));
             speedLevel++;
             money -= speedCost;
             UpdateMoney();
@@ -50,19 +52,24 @@ public class ShopManager : MonoBehaviour
         {
             case 1:
                 speedCost = 100;
-                speed_Cost_Text.GetComponent<Text>().text = "$" + speedCost;
                 speed_Bar.GetComponent<Slider>().value = 0;
                 break;
             case 2:
-                speedCost = 175;
-                speed_Cost_Text.GetComponent<Text>().text = "$" + speedCost;
+                speedCost = 1075;
                 speed_Bar.GetComponent<Slider>().value = .10f;
                 break;
+            case 3:
+                speedCost = 2500;
+                speed_Bar.GetComponent<Slider>().value = .20f;
+                break;
+           
         }
+        speed_Cost_Text.GetComponent<Text>().text = "$" + speedCost;
     }
 
     public void LoadNextLevel()
     {
+        AudioSource.PlayClipAtPoint(selectSound, new Vector3(0, 0, 0));
         level++;
         PlayerPrefs.SetInt("Money", money);
         PlayerPrefs.SetInt("Level", level);

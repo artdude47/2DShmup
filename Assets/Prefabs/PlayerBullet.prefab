@@ -146,4 +146,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 7
+  effect: {fileID: 4206415584716800838, guid: 7292a4b379697254c9c03bd29b07b53f, type: 3}
   player: {fileID: 298344829541329844, guid: f39e7a47797758049b7c44d230ce1cef, type: 3}

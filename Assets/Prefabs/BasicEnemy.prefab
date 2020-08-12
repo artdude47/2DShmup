@@ -151,9 +151,12 @@ MonoBehaviour:
   ExtraLife: {fileID: 5347533933347909963, guid: 6540fef03d78d644ea97059919ad8fe3,
     type: 3}
   explode: {fileID: 8300000, guid: 400d2e0daa7cf2d48a44239bc36f8ddb, type: 3}
+  matDefault: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  matWhite: {fileID: 2100000, guid: e80b1677cc22395469139f74c3cd880a, type: 2}
   scoreCount: 10
   moneyCount: 10
   speed: 3
+  vertSpeed: 7
   bullet: {fileID: 8064081970923805402, guid: 5d0c2381c9c337e498e8da9145314680, type: 3}
   firePoint: {fileID: 4876415333546910586}
   shotChance: 300

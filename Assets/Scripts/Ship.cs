@@ -12,12 +12,27 @@ public class Ship : MonoBehaviour
     private int impactDamage = 1;
     public AudioClip explode;
 
+    public Material matDefault;
+    public Material matWhite;
+    public SpriteRenderer sr;
+
+    private void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+        sr.material = matWhite;
         if (health <= 0)
+        {
             Die(true);
+        } else
+        {
+            Invoke("ResetMaterial", .1f);
+        }
   
     }
 
@@ -75,10 +90,15 @@ public class Ship : MonoBehaviour
     //5% chance for 1 up drop
     private void DropChance()
     {
-        float tempNum = Random.Range(0, 200);
+        float tempNum = Random.Range(0, 10);
         if (tempNum == 2)
         {
             Instantiate(ExtraLife, transform.position, new Quaternion(0,0,0,0));
         }
+    }
+
+    public void ResetMaterial()
+    {
+        sr.material = matDefault;
     }
 }

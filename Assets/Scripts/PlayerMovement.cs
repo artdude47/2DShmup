@@ -28,13 +28,14 @@ public class PlayerMovement : Ship
     private int money = 0;
     private Vector2 spawnCoods;
     public int immunityTimer = 0;
+    public AudioClip powerUp;
 
     private int speedLevel = 1;
 
     // Start is called before the first frame update
     private void Awake()
     {
-    
+        sr = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -54,6 +55,9 @@ public class PlayerMovement : Ship
                 break;
             case 2:
                 speed = 5.25f;
+                break;
+            case 3:
+                speed = 5.5f;
                 break;
         }
 
@@ -118,6 +122,7 @@ public class PlayerMovement : Ship
     {
         transform.position = spawnCoods;
         this.gameObject.SetActive(true);
+        sr.material = matDefault;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -133,13 +138,14 @@ public class PlayerMovement : Ship
         if (collision.tag == "1up")
         {
             AddLives();
+            AudioSource.PlayClipAtPoint(powerUp, transform.position);
             Destroy(collision.gameObject);
         }
     }
 
     private void AddLives()
     {
-        lives++;
+        lives += 1;
         Debug.Log("Lives Added!");
     }
 
