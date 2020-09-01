@@ -13,6 +13,11 @@ public class PlayerBullet : Bullet {
         rb.velocity = new Vector2(speed, 0);
     }
 
+    private void Update()
+    {
+        if (transform.position.x > 9) Die();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         /*  if (collision.GetComponent<BasicEnemy>())

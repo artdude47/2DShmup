@@ -14,7 +14,9 @@ public class PlayerMovement : Ship
     public float shootTime = .5f;
     public GameObject textbox;
     public GameObject livesText;
+    public GameObject victoryText;
     public AudioClip shootSound;
+    public AudioClip levelEndSound;
     public int lives;
     private int level = 0;
 
@@ -68,6 +70,7 @@ public class PlayerMovement : Ship
     // Update is called once per frame
     void Update()
     {
+        sr.material = matDefault;
         if (immunityTimer > 0) immunityTimer--;
         if(livesText != null) livesText.GetComponent<Text>().text = "Lives: " + lives;
         if(textbox != null) textbox.GetComponent<Text>().text = "Score: " + score;
@@ -132,7 +135,17 @@ public class PlayerMovement : Ship
             PlayerPrefs.SetInt("Money", money);
             PlayerPrefs.SetInt("Level", level);
             PlayerPrefs.SetInt("SpeedLevel", speedLevel);
-            SceneManager.LoadScene("Shop");
+            AudioSource.PlayClipAtPoint(levelEndSound, transform.position);
+            victoryText.SetActive(true);
+            if (level != 9)
+            {
+                WaitForEnd();
+            }
+            else
+            {
+                Victory();
+            }
+
             
         }
         if (collision.tag == "1up")
@@ -143,6 +156,22 @@ public class PlayerMovement : Ship
         }
     }
 
+    private void WaitForEnd()
+    {
+        victoryText.SetActive(true);
+        Invoke("EndLevel", 5);
+    }
+
+    private void Victory()
+    {
+        victoryText.GetComponent<Text>().text = "VICTORY!!!";
+        victoryText.SetActive(true);
+    }
+
+    private void EndLevel()
+    {
+        SceneManager.LoadScene("Shop");
+    }
     private void AddLives()
     {
         lives += 1;

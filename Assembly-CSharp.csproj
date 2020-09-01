@@ -73,9 +73,12 @@
     <Compile Include="Assets\Scripts\ParallaxAttempt.cs" />
     <Compile Include="Assets\Scripts\PlayerBullet.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\RamEnemy.cs" />
     <Compile Include="Assets\Scripts\ResetButton.cs" />
     <Compile Include="Assets\Scripts\Ship.cs" />
     <Compile Include="Assets\Scripts\ShopManager.cs" />
+    <Compile Include="Assets\Scripts\SineEnemy.cs" />
+    <Compile Include="Assets\Scripts\TankEnemy.cs" />
     <Compile Include="Assets\Scripts\TitleHandler.cs" />
     <Compile Include="Assets\Scripts\ZigZag.cs" />
     <None Include="Assets\Sprites\UI\PixelUIpack\License.txt" />

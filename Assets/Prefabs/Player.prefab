@@ -4940,7 +4940,9 @@ MonoBehaviour:
   shootTime: 0.5
   textbox: {fileID: 0}
   livesText: {fileID: 0}
+  victoryText: {fileID: 0}
   shootSound: {fileID: 8300000, guid: 45edd58834892a24cb91acb369f1e77f, type: 3}
+  levelEndSound: {fileID: 8300000, guid: 08f3d1577535158469e46b0dbd34e76a, type: 3}
   lives: 3
   immunityTimer: 0
   powerUp: {fileID: 8300000, guid: a18e6d3aa17c8754987d0d68907dc0df, type: 3}

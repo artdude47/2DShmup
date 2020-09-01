@@ -54,7 +54,10 @@ public class Ship : MonoBehaviour
                 playerScript.immunityTimer = 20;
                 tempPlayer.SetActive(false);
                 playerScript.lives--;
+                playerScript.sr.material = matDefault;
+                ResetMaterial();
                 playerScript.Respawn();
+                ResetMaterial();
             }
             else if(playerScript.lives <= 0)
             {

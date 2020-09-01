@@ -7,7 +7,7 @@ public class EnemyBullet : Bullet
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(speed * -1, 0);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
