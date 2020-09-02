@@ -109,8 +109,8 @@ MonoBehaviour:
   scoreCount: 50
   moneyCount: 40
   speed: 3
-  ramSpeed: 25
-  player: {fileID: 298344829541329850, guid: f39e7a47797758049b7c44d230ce1cef, type: 3}
+  ramSpeed: 20
+  player: {fileID: 0}
 --- !u!50 &4600268871538760224
 Rigidbody2D:
   serializedVersion: 4
