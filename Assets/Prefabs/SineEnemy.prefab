@@ -106,8 +106,8 @@ MonoBehaviour:
   matDefault: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   matWhite: {fileID: 2100000, guid: e80b1677cc22395469139f74c3cd880a, type: 2}
   sr: {fileID: 7226426309088070190}
-  scoreCount: 0
-  moneyCount: 0
+  scoreCount: 100
+  moneyCount: 100
   Frequency: 10
   Magnitude: 8
   speed: 3

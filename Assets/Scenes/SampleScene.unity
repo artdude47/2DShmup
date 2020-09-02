@@ -2762,12 +2762,6 @@ Transform:
   m_Father: {fileID: 144873075}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2057010028 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 298344829541329851, guid: f39e7a47797758049b7c44d230ce1cef,
-    type: 3}
-  m_PrefabInstance: {fileID: 298344830014496963}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2057010029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 298344829541329850, guid: f39e7a47797758049b7c44d230ce1cef,
@@ -2850,10 +2844,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1284052511, guid: f39e7a47797758049b7c44d230ce1cef, type: 3}
-      propertyPath: sr
-      value: 
-      objectReference: {fileID: 2057010028}
     - target: {fileID: 298344829541329844, guid: f39e7a47797758049b7c44d230ce1cef,
         type: 3}
       propertyPath: m_Name

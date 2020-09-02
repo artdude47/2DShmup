@@ -35,6 +35,8 @@ public class TankEnemy : Enemy
             }
         }
 
+        if (transform.position.x < -9) Die(false);
+
         //check player's position vs. current position
         if (player.position.x <= transform.position.x - 3)
         {

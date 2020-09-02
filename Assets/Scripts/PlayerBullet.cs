@@ -7,10 +7,11 @@ public class PlayerBullet : Bullet {
 
     public GameObject player;
     private PlayerMovement playerScript;
+    public int angle = 0;
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(speed, 0);
+        rb.velocity = new Vector2(speed, angle);
     }
 
     private void Update()

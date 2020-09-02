@@ -3694,10 +3694,6 @@ PrefabInstance:
       propertyPath: victoryText
       value: 
       objectReference: {fileID: 115391047}
-    - target: {fileID: 1284052511, guid: f39e7a47797758049b7c44d230ce1cef, type: 3}
-      propertyPath: levelEndSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 08f3d1577535158469e46b0dbd34e76a, type: 3}
     - target: {fileID: 298344829541329844, guid: f39e7a47797758049b7c44d230ce1cef,
         type: 3}
       propertyPath: m_Name
@@ -3706,7 +3702,7 @@ PrefabInstance:
     - target: {fileID: 298344829541329850, guid: f39e7a47797758049b7c44d230ce1cef,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.0781975
+      value: -8.35
       objectReference: {fileID: 0}
     - target: {fileID: 298344829541329850, guid: f39e7a47797758049b7c44d230ce1cef,
         type: 3}
