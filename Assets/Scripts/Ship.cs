@@ -38,6 +38,11 @@ public class Ship : MonoBehaviour
 
     protected void Die(bool playSound)
     {
+        //if it is boss go to victory screen
+        if(this.GetComponent<BossEnemy>() != null)
+        {
+            SceneManager.LoadScene("Victory");
+        }
         //if it is the player turn off the game object and play animation
         bool isPlayer = false;
         if (this.GetComponent<PlayerMovement>())

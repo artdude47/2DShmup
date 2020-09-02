@@ -11,6 +11,7 @@ public class TankEnemy : Enemy
     public GameObject chaseBullet;
     public float speed = 5f;
 
+    private bool shooting = false;
     private Animator anim;
     private Rigidbody2D rb;
 
@@ -23,16 +24,22 @@ public class TankEnemy : Enemy
 
     }
 
+    private void Start()
+    {
+        InvokeRepeating("CheckShoot", 1.5f, 1.5f);
+    }
     private void Update()
     {
-        if (transform.position.x < 8.4)
+        if (transform.position.x < 8.4 && shooting == false)
             timer++;
+        shooting = true;
         {
-            if (timer == 270)
+            if (timer == 150)
             {
-                Shoot();
+               // Shoot();
                 timer = 0;
             }
+            
         }
 
         if (transform.position.x < -9) Die(false);
@@ -58,6 +65,14 @@ public class TankEnemy : Enemy
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(-1 * speed, 0);
+    }
+
+    private void CheckShoot()
+    {
+        if(transform.position.x < 8.75)
+        {
+            Shoot();
+        }
     }
 
     private void Shoot()

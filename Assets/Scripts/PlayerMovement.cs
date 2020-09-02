@@ -52,6 +52,8 @@ public class PlayerMovement : Ship
         {
             money = PlayerPrefs.GetInt("Money");
             level = PlayerPrefs.GetInt("Level");
+            score = PlayerPrefs.GetInt("Score");
+            lives = PlayerPrefs.GetInt("Lives");
             speedLevel = PlayerPrefs.GetInt("SpeedLevel");
             shipLevel = PlayerPrefs.GetInt("ShipLevel");
             shootLevel = PlayerPrefs.GetInt("ShootLevel");
@@ -169,7 +171,8 @@ public class PlayerMovement : Ship
         {
             foreach(GameObject teamShip in myShips)
             {
-                Instantiate(bullet, teamShip.transform.position, teamShip.transform.rotation);
+                GameObject friendBul = Instantiate(bullet, teamShip.transform.position, teamShip.transform.rotation);
+                friendBul.GetComponent<PlayerBullet>().SetPlayer(this.gameObject);
             }
         }
     }
@@ -201,6 +204,8 @@ public class PlayerMovement : Ship
             PlayerPrefs.SetInt("SpeedLevel", speedLevel);
             PlayerPrefs.SetInt("ShootLevel", shootLevel);
             PlayerPrefs.SetInt("ShipLevel", shipLevel);
+            PlayerPrefs.SetInt("Lives", lives);
+            PlayerPrefs.SetInt("Score", score);
             AudioSource.PlayClipAtPoint(levelEndSound, transform.position);
             victoryText.SetActive(true);
             if (level != 9)

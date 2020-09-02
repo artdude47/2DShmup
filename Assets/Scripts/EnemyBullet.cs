@@ -17,10 +17,6 @@ public class EnemyBullet : Bullet
             collision.GetComponent<PlayerMovement>().TakeDamage(damage);
             Die();
         }
-        if (collision.GetComponent<EnemyBullet>())
-        {
-            Die();
-        }
 
         if (collision.GetComponent<BasicEnemy>()) Die();
     }
